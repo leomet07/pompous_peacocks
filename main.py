@@ -1,25 +1,15 @@
-import operator
 def getUnbeatable(peacocks):
 	realwinners = 0
-
 	currentwinners = [] 
-
 	exacts = []
 
 	changedLast = 0
 	for i in range(len(peacocks)):
 		pck = peacocks[i]
-		
-
-		v ,c  = pck
+		v , c  = pck
 
 		if len(currentwinners) > 0:
-			# print("currentwinners: ", currentwinners)
-			
-			
-
 			change = currentwinners
-
 			
 			for it in range(len(currentwinners)):
 				w = currentwinners[it]
@@ -56,10 +46,6 @@ def getUnbeatable(peacocks):
 
 				print("ENDBOI: ", change)
 			currentwinners = change
-				
-
-			
-			
 
 		if i == 0:
 			currentwinners.append(pck)
@@ -80,10 +66,3 @@ if __name__ == "__main__":
 	# peacocks = [[1 ,3], [2, 3] ,  [ 2, 3 ] , [0 ,5]] # v ,c
 	peacocks = [[1, 1] , [2  ,1] ,[3 ,2] , [3 ,2] ,[3, 3] ]
 	print("unbeatable peacocks: " , getUnbeatable(peacocks))
-	
-
-		# if c > max
-		
-
-
-

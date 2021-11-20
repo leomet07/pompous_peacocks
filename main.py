@@ -34,6 +34,7 @@ def getUnbeatable(peacocks):
 					if v == w[0] or c == w[1]:
 						print("RESET")
 						change = []
+						exacts = []
 					change.append(pck)
 					changedLast = i
 					print("Changed last one:", changedLast)
@@ -42,7 +43,9 @@ def getUnbeatable(peacocks):
 					print("Beaten Both: ")
 					change = []
 					change.append(pck)
+					exacts = []
 					changedLast = i
+
 					print("Changed last both: ", changedLast)
 					
 				elif v == w[0] and c == w[1]:
@@ -64,65 +67,6 @@ def getUnbeatable(peacocks):
 	print("end winners: ", currentwinners)
 	print("end exacts", exacts)
 	realwinners = len(currentwinners) + len(exacts)
-	# maxv = 0 # Vibrance
-	# maxc = 0 # Confidence
-
-	# realwinners = 0
-	# winnersofv = set()
-	# winnersofc = set()
-	# for i in range(len(peacocks)):
-	# 	pck = peacocks[i]
-	# 	v , c = pck
-
-	# 	if v > maxv:
-	# 		maxv = v
-	# 		winnersofv = set()
-	# 		winnersofv.add(i)
-	# 	elif v == maxv:
-	# 		winnersofv.add(i)
-
-
-	# 	if c > maxc:
-	# 		maxc = c
-	# 		winnersofc = set()
-	# 		winnersofc.add(i)
-	# 	elif c == maxc:
-	# 		winnersofc.add(i)
-
-
-	# for winnervindex in winnersofv:
-	# 	winner = peacocks[winnervindex]
-	# 	v , c = winner
-
-	# 	if c > maxc:
-	# 		realwinners = 1
-	# 		maxc = c
-	# 	elif c == maxc:
-	# 		realwinners += 1
-
-
-		
-	# print("Winners of c: ", winnersofc)
-	# if len(winnersofc) > 1:
-
-	# 	tempmaxv = 0
-	# 	n = 0
-	# 	for winnercindex in winnersofc:
-	# 		winner = peacocks[winnercindex]
-	# 		v , c = winner
-
-	# 		if v > tempmaxv:
-	# 			tempmaxv = v
-	# 			n = 1
-	# 		elif v == tempmaxv:
-	# 			n += 1
-
-	# 		print(winner)
-
-	# 	print(n)
-	# 	realwinners += n
-	
-
 
 	return realwinners
 
@@ -133,8 +77,8 @@ if __name__ == "__main__":
 	# peacocks = [[1 ,2], [1 , 4],] # v ,c
 	# peacocks = [[1 ,3], [0 , 5], [1 , 5]] # v ,c
 	# peacocks = [[3 ,4], [3, 4], [3 , 4]]
-	peacocks = [[1 ,3], [2, 3] ,  [ 2, 3 ] , [0 ,5]] # v ,c
-
+	# peacocks = [[1 ,3], [2, 3] ,  [ 2, 3 ] , [0 ,5]] # v ,c
+	peacocks = [[1, 1] , [2  ,1] ,[3 ,2] , [3 ,2] ,[3, 3] ]
 	print("unbeatable peacocks: " , getUnbeatable(peacocks))
 	
 

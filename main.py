@@ -13,7 +13,7 @@ def getUnbeatable(peacocks):
 			
 			for it in range(len(currentwinners)):
 				w = currentwinners[it]
-				print("NEWBOI: ", change)
+				print("NEW: ", change)
 				
 				isbiggerv = v > w[0]	
 				isbiggerc = c > w[1]
@@ -44,7 +44,7 @@ def getUnbeatable(peacocks):
 						print(v , w[0], c , w[1])
 						exacts.append(pck)
 
-				print("ENDBOI: ", change)
+				print("END: ", change)
 			currentwinners = change
 
 		if i == 0:
@@ -64,5 +64,5 @@ if __name__ == "__main__":
 	# peacocks = [[1 ,3], [0 , 5], [1 , 5]] # v ,c
 	# peacocks = [[3 ,4], [3, 4], [3 , 4]]
 	# peacocks = [[1 ,3], [2, 3] ,  [ 2, 3 ] , [0 ,5]] # v ,c
-	peacocks = [[1, 1] , [2  ,1] ,[3 ,2] , [3 ,2] ,[3, 3] ]
+	peacocks = [[1, 7] , [2, 7], [2, 6], [3,5], [3,5]]
 	print("unbeatable peacocks: " , getUnbeatable(peacocks))

@@ -1,32 +1,61 @@
 def unbeatable(peacocks):
-	maxv = 0 # Vibrance
-	maxc = 0 # Confidence
+	realwinners = 0
+	currentwinners = [] 
+	exacts = []
 
-	winnersofv = set()
+	changedLast = 0
 	for i in range(len(peacocks)):
 		pck = peacocks[i]
-		v , c = pck
+		v , c  = pck
 
-		if v > maxv:
-			maxv = v
-			winnersofv = set()
-			winnersofv.add(i)
-		elif v == maxv:
-			winnersofv.add(i)
+		if len(currentwinners) > 0:
+			change = currentwinners
+			
+			for it in range(len(currentwinners)):
+				w = currentwinners[it]
+				print("NEWBOI: ", change)
+				
+				isbiggerv = v > w[0]	
+				isbiggerc = c > w[1]
+				
+				if (isbiggerv or isbiggerc) and not((isbiggerv and isbiggerc)):
+					print("Beaten only one: ", w, pck)
+					
+					if v == w[0] or c == w[1]:
+						print("RESET")
+						change = []
+						exacts = []
+					change.append(pck)
+					changedLast = i
+					print("Changed last one:", changedLast)
+					
+				elif isbiggerc and isbiggerv:
+					print("Beaten Both: ")
+					change = []
+					change.append(pck)
+					exacts = []
+					changedLast = i
 
-	realwinners = 0
+					print("Changed last both: ", changedLast)
+					
+				elif v == w[0] and c == w[1]:
+					if changedLast < i:
+						print("--------------------Exact match", w, pck, changedLast, i)
+						print(v , w[0], c , w[1])
+						exacts.append(pck)
 
-	for winnerindex in winnersofv:
-		winner = peacocks[winnerindex]
-		v , c = winner
+				print("ENDBOI: ", change)
+			currentwinners = change
 
-		if c > maxc:
-			realwinners = 1
-			maxc = c
-		elif c == maxc:
-			realwinners += 1
+		if i == 0:
+			currentwinners.append(pck)
+
+	print("end winners: ", currentwinners)
+	print("end exacts", exacts)
+	realwinners = len(currentwinners) + len(exacts)
 
 	return realwinners
+
 
 
 # do not modify below
